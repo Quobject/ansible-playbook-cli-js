@@ -1,0 +1,34 @@
+{
+  "name": "ansible-playbook-cli-js",
+  "version": "0.0.5",
+  "description": "A node.js wrapper for the ansible-playbook command",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quobject/ansible-playbook-cli-js.git"
+  },
+  "keywords": [
+    "ansible-playbook","ansible"
+  ],
+  "author": "Matthias Ludwig <mludwig@quobject.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Quobject/ansible-playbook-cli-js/issues"
+  },
+  "homepage": "https://github.com/Quobject/ansible-playbook-cli-js",
+  "devDependencies": {
+    "grunt-shell": "~1.1.2",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.11.3",
+    "mocha": "~2.3.3",
+    "grunt-mocha-test": "~0.12.7",
+    "chai": "~3.3.0"
+  },
+  "dependencies": {
+    "lodash": "~3.10.1",
+    "bluebird": "~2.10.1"
+  }
+}
