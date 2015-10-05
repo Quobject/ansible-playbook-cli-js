@@ -1,0 +1,9 @@
+﻿---
+- name: create test dir
+  hosts: 127.0.0.1
+  connection: local
+  sudo: yes
+
+  tasks:
+    - name: create tmp2 dir
+      file: path=/home/apollo/provisioning/tmp2 state=directory mode=0755
