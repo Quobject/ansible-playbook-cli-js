@@ -8,7 +8,7 @@ A node.js wrapper for the [ansible-playbook](http://linux.die.net/man/1/ansible-
 
 ### Step 1: Prerequisites
 
-The aws command line interface must be installed and accessible in the path
+Ansible must be installed and accessible in the path
 
 ### Step 2: Installation
     
