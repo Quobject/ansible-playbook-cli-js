@@ -1,6 +1,6 @@
 {
   "name": "ansible-playbook-cli-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A node.js wrapper for the ansible-playbook command",
   "main": "lib/index.js",
   "scripts": {
@@ -11,7 +11,8 @@
     "url": "git+https://github.com/Quobject/ansible-playbook-cli-js.git"
   },
   "keywords": [
-    "ansible-playbook","ansible"
+    "ansible-playbook",
+    "ansible"
   ],
   "author": "Matthias Ludwig <mludwig@quobject.io>",
   "license": "Apache-2.0",
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "lodash": "~3.10.1",
-    "bluebird": "~2.10.1"
+    "bluebird": "~2.10.1",
+    "debug": "~2.2.0"
   }
 }

@@ -7,3 +7,8 @@
   tasks:
     - name: create tmp2 dir
       file: path=/home/apollo/provisioning/tmp2 state=directory mode=0755
+
+    - name: run grunt command
+      command: chdir=/home/apollo/development/quobject.visualstudio.com/ansible-playbook-cli-js grunt jshint
+      register: output
+    - debug: var=output  

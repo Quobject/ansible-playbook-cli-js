@@ -49,10 +49,10 @@ describe('AnsiblePlaybookCli run without modifications', function () {
       console.log('data = ', util.inspect(data, { depth: 10 }));
       assert.isNotNull(data);
     }).catch(function (error) {
+      console.log('error = ', error);
       assert.isNotNull(error);
       err = error;
       failed = true;
-      console.log('error = ', error);
     }).finally(function () {
       //console.log('finally ');
       assert.isFalse(failed);
@@ -61,81 +61,81 @@ describe('AnsiblePlaybookCli run without modifications', function () {
     });
   });
 
-  it('test1 should pass with callback', function (done) {
-    this.timeout(1 * 60 * 1000);//1 minute
+  //it('test1 should pass with callback', function (done) {
+  //  this.timeout(1 * 60 * 1000);//1 minute
 
-    var ansiblePlaybookCli = new AnsiblePlaybookCli({
-      cwd: path.join(__dirname, 'test1')
-    });
+  //  var ansiblePlaybookCli = new AnsiblePlaybookCli({
+  //    cwd: path.join(__dirname, 'test1')
+  //  });
 
-    assert.isNotNull(ansiblePlaybookCli);
-
-
-    ansiblePlaybookCli.command('playbook.yml --inventory-file hosts', function (err, data) {
-      console.log('data = ', util.inspect(data, { depth: 10 }));
-      assert.isNotNull(data);
-      done();
-    });
-  });
+  //  assert.isNotNull(ansiblePlaybookCli);
 
 
-
-  it('test1 should fail', function (done) {
-    this.timeout(1 * 60 * 1000);//1 minute
-
-    var ansiblePlaybookCli = new AnsiblePlaybookCli({
-      cwd: path.join(__dirname, 'test1')
-    });
-
-    assert.isNotNull(ansiblePlaybookCli);
-    var failed = false;
-    var err = null;
+  //  ansiblePlaybookCli.command('playbook.yml --inventory-file hosts', function (err, data) {
+  //    console.log('data = ', util.inspect(data, { depth: 10 }));
+  //    assert.isNotNull(data);
+  //    done();
+  //  });
+  //});
 
 
-    ansiblePlaybookCli.command('playbook1.yml --inventory-file hosts').then( function (data) {
-      console.log('data = ', util.inspect(data, { depth: 10 }));
-      assert.isNotNull(data);
-    }).catch(function (error) {
-      assert.isNotNull(error);
-      err = error;
-      failed = true;
-      console.log('error = ', error);
-    }).finally(function () {
-      //console.log('finally ');
-      assert.isTrue(failed);
-      assert.isNotNull(err);
-      done();
-    });
-  }); 
+
+  //it('test1 should fail', function (done) {
+  //  this.timeout(1 * 60 * 1000);//1 minute
+
+  //  var ansiblePlaybookCli = new AnsiblePlaybookCli({
+  //    cwd: path.join(__dirname, 'test1')
+  //  });
+
+  //  assert.isNotNull(ansiblePlaybookCli);
+  //  var failed = false;
+  //  var err = null;
 
 
-  it('test1 should pass with options', function (done) {
-    this.timeout(1 * 60 * 1000);//1 minute
+  //  ansiblePlaybookCli.command('playbook1.yml --inventory-file hosts').then( function (data) {
+  //    console.log('data = ', util.inspect(data, { depth: 10 }));
+  //    assert.isNotNull(data);
+  //  }).catch(function (error) {
+  //    assert.isNotNull(error);
+  //    err = error;
+  //    failed = true;
+  //    console.log('error = ', error);
+  //  }).finally(function () {
+  //    //console.log('finally ');
+  //    assert.isTrue(failed);
+  //    assert.isNotNull(err);
+  //    done();
+  //  });
+  //}); 
 
-    var ansiblePlaybookCli = new AnsiblePlaybookCli({
-      cwd: path.join(__dirname, 'test1')
-    });
 
-    assert.isNotNull(ansiblePlaybookCli);
-    var failed = false;
-    var err = null;
+  //it('test1 should pass with options', function (done) {
+  //  this.timeout(1 * 60 * 1000);//1 minute
+
+  //  var ansiblePlaybookCli = new AnsiblePlaybookCli({
+  //    cwd: path.join(__dirname, 'test1')
+  //  });
+
+  //  assert.isNotNull(ansiblePlaybookCli);
+  //  var failed = false;
+  //  var err = null;
 
 
-    ansiblePlaybookCli.command('playbook.yml', { 'inventory-file': 'hosts' }).then(function (data) {
-      console.log('data = ', util.inspect(data, { depth: 10 }));
-      assert.isNotNull(data);
-    }).catch(function (error) {
-      assert.isNotNull(error);
-      err = error;
-      failed = true;
-      console.log('error = ', error);
-    }).finally(function () {
-      //console.log('finally ');
-      assert.isFalse(failed);
-      assert.isNull(err);
-      done();
-    });
-  });
+  //  ansiblePlaybookCli.command('playbook.yml', { 'inventory-file': 'hosts' }).then(function (data) {
+  //    console.log('data = ', util.inspect(data, { depth: 10 }));
+  //    assert.isNotNull(data);
+  //  }).catch(function (error) {
+  //    assert.isNotNull(error);
+  //    err = error;
+  //    failed = true;
+  //    console.log('error = ', error);
+  //  }).finally(function () {
+  //    //console.log('finally ');
+  //    assert.isFalse(failed);
+  //    assert.isNull(err);
+  //    done();
+  //  });
+  //});
  
 });
 
