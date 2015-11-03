@@ -1,6 +1,6 @@
 {
   "name": "ansible-playbook-cli-js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A node.js wrapper for the ansible-playbook command",
   "main": "lib/index.js",
   "scripts": {
