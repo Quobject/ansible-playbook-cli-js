@@ -17,7 +17,7 @@ Ansible must be installed and accessible in the path
 Then:
 
 ```js
-var AnsiblePlaybookCli = require('ansible-playbook-cli-js');
+var ansiblePlaybookCli = require('ansible-playbook-cli-js');
 ```
 
 ## Usage
@@ -25,9 +25,15 @@ var AnsiblePlaybookCli = require('ansible-playbook-cli-js');
 With promise
 
 ```js
-var ansiblePlaybookCli = new AnsiblePlaybookCli({
-  cwd: 'test1'
-});
+var Options = ansiblePlaybookCli.Options;
+var Ansible = ansiblePlaybookCli.AnsiblePlaybook;
+
+var options = new Options(
+    /* currentWorkingDirectory */ 'test'
+);
+
+var ansiblePlaybook = new AnsiblePlaybook(options);
+
 
 ansiblePlaybookCli.command('playbook.yml -i hosts').then(function (data) {
   console.log('data = ', data); 
@@ -36,7 +42,7 @@ ansiblePlaybookCli.command('playbook.yml -i hosts').then(function (data) {
 
 //data = {
 //  command: 'ansible-playbook playbook.yml -i hosts ',
-//  raw: '["\\nPLAY [create test dir] ******************************************************** \\n\\nGATHERING FACTS *************************************************************** \\nok: [127.0.0.1]\\n\\nTASK: [create tmp2 dir] ******************************************************* \\nok: [127.0.0.1]\\n\\nPLAY RECAP ******************************************************************** \\n127.0.0.1                  : ok=2    changed=0    unreachable=0    failed=0   \\n\\n",""]',
+//  raw: '\\nPLAY [create test dir] ******************************************************** \\n\\nGATHERING FACTS *************************************************************** \\nok: [127.0.0.1]\\n\\nTASK: [create tmp2 dir] ******************************************************* \\nok: [127.0.0.1]\\n\\nPLAY RECAP ******************************************************************** \\n127.0.0.1                  : ok=2    changed=0    unreachable=0    failed=0   \\n\\n',
 //  lines:
 //   ['',
 //     'PLAY [create test dir] ******************************************************** ',
@@ -64,56 +70,26 @@ ansiblePlaybookCli.command('playbook.yml --inventory-file hosts', function (err,
   console.log('data = ', data);
 });
 
-//data = {
-//  command: 'ansible-playbook playbook.yml --inventory-file hosts ',
-//  raw: '["\\nPLAY [create test dir] ******************************************************** \\n\\nGATHERING FACTS *************************************************************** \\nok: [127.0.0.1]\\n\\nTASK: [create tmp2 dir] ******************************************************* \\nok: [127.0.0.1]\\n\\nPLAY RECAP ******************************************************************** \\n127.0.0.1                  : ok=2    changed=0    unreachable=0    failed=0   \\n\\n",""]',
-//  lines:
-//   ['',
-//     'PLAY [create test dir] ******************************************************** ',
-//     '',
-//     'GATHERING FACTS *************************************************************** ',
-//     'ok: [127.0.0.1]',
-//     '',
-//     'TASK: [create tmp2 dir] ******************************************************* ',
-//     'ok: [127.0.0.1]',
-//     '',
-//     'PLAY RECAP ******************************************************************** ',
-//     '127.0.0.1                  : ok=2    changed=0    unreachable=0    failed=0   ',
-//     '',
-//     ''],
-//  object: { host: '127.0.0.1', ok: 2, changed: 0, unreachable: 0, failed: 0 }
-//}
 
 ```
 
 
-With options
+Typescript:
 
 ```js
-ansiblePlaybookCli.command('playbook.yml', { 'inventory-file': 'hosts' }).then(function (data) {
-  console.log('data = ', data); 
+import { AnsiblePlaybook, Options } from 'ansible-playbook-cli-js';
+
+const options = new Options(
+  /* currentWorkingDirectory */ 'test'
+);
+
+const ansiblePlaybook = new AnsiblePlaybook(options);
+
+ansiblePlaybook.command('playbook.yml --inventory-file hosts').then(function (data) {
+  console.log('data = ', data);
 });
 
-//data = {
-//  command: 'ansible-playbook playbook.yml --inventory-file hosts ',
-//  raw: '["\\nPLAY [create test dir] ******************************************************** \\n\\nGATHERING FACTS *************************************************************** \\nok: [127.0.0.1]\\n\\nTASK: [create tmp2 dir] ******************************************************* \\nok: [127.0.0.1]\\n\\nPLAY RECAP ******************************************************************** \\n127.0.0.1                  : ok=2    changed=0    unreachable=0    failed=0   \\n\\n",""]',
-//  lines:
-//   ['',
-//     'PLAY [create test dir] ******************************************************** ',
-//     '',
-//     'GATHERING FACTS *************************************************************** ',
-//     'ok: [127.0.0.1]',
-//     '',
-//     'TASK: [create tmp2 dir] ******************************************************* ',
-//     'ok: [127.0.0.1]',
-//     '',
-//     'PLAY RECAP ******************************************************************** ',
-//     '127.0.0.1                  : ok=2    changed=0    unreachable=0    failed=0   ',
-//     '',
-//     ''],
-//  object: { host: '127.0.0.1', ok: 2, changed: 0, unreachable: 0, failed: 0 }
-//}
-
 ```
+
 
 
