@@ -107,7 +107,6 @@ export class AnsiblePlaybook {
         raw: data.stdout,
       };
       return extractResult(result);
-      //return result;
 
     }).nodeify(callback);
   }
