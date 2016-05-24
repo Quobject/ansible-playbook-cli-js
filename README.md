@@ -26,7 +26,7 @@ With promise
 
 ```js
 var Options = ansiblePlaybookCli.Options;
-var Ansible = ansiblePlaybookCli.AnsiblePlaybook;
+var AnsiblePlaybook = ansiblePlaybookCli.AnsiblePlaybook;
 
 var options = new Options(
     /* currentWorkingDirectory */ 'test'
