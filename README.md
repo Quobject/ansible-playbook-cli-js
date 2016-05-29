@@ -35,7 +35,7 @@ var options = new Options(
 var ansiblePlaybook = new AnsiblePlaybook(options);
 
 
-ansiblePlaybookCli.command('playbook.yml -i hosts').then(function (data) {
+ansiblePlaybook.command('playbook.yml -i hosts').then(function (data) {
   console.log('data = ', data); 
 });
 
@@ -66,7 +66,7 @@ With callback:
 
 ```js
 
-ansiblePlaybookCli.command('playbook.yml --inventory-file hosts', function (err, data) {
+ansiblePlaybook.command('playbook.yml --inventory-file hosts', function (err, data) {
   console.log('data = ', data);
 });
 
