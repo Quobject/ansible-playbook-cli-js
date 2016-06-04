@@ -4,6 +4,9 @@ A node.js wrapper for the [ansible-playbook](http://linux.die.net/man/1/ansible-
 [![NPM](https://nodei.co/npm/ansible-playbook-cli-js.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ansible-playbook-cli-js/)
 [![NPM](https://nodei.co/npm-dl/ansible-playbook-cli-js.png?months=6&height=3)](https://nodei.co/npm/ansible-playbook-cli-js/)
 
+[![NPM version][npm-image]][npm-url]
+[![NPM downloads][downloads-image]][downloads-url]
+
 ## Installation
 
 ### Step 1: Prerequisites
@@ -90,6 +93,16 @@ ansiblePlaybook.command('playbook.yml --inventory-file hosts').then(function (da
 });
 
 ```
+
+## License
+
+MIT
+
+[npm-image]: https://img.shields.io/npm/v/ansible-playbook-cli-js.svg?style=flat
+[npm-url]: https://npmjs.org/package/ansible-playbook-cli-js
+[downloads-image]: https://img.shields.io/npm/dm/ansible-playbook-cli-js.svg?style=flat
+[downloads-url]: https://npmjs.org/package/ansible-playbook-cli-js
+
 
 
 

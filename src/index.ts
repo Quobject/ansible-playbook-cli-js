@@ -1,5 +1,5 @@
 ﻿import * as _ from 'lodash';
-import * as Promise from 'bluebird';
+import nodeify from 'nodeify-ts';
 import * as child_process from 'child_process';
 import * as os from 'os';
 const exec = child_process.exec;
@@ -75,7 +75,7 @@ export class AnsiblePlaybook {
     let ansiblePlaybook = this;
     let execCommand = 'ansible-playbook ' + command;
 
-    return Promise.resolve().then(function () {
+    const promise = Promise.resolve().then(function () {
       //console.log('execCommand =', execCommand);
 
       let execOptions = {
@@ -109,8 +109,9 @@ export class AnsiblePlaybook {
         raw: data.stdout,
       };
       return extractResult(result);
+    });
 
-    }).nodeify(callback);
+    return nodeify(promise, callback);
   }
 }
 
