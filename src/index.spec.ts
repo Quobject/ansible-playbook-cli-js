@@ -9,7 +9,7 @@ test('ansible-playbook-cli-js', t => {
 
   t.test('playbook.yml -i hosts', t => {
     const options = new Options(
-      /* currentWorkingDirectory */ path.join(__dirname, '..', 'test', 'test1')
+      /* currentWorkingDirectory */ path.join(__dirname, '..', 'test', 'test1'),
     );
 
     const ansiblePlaybook = new AnsiblePlaybook(options);
